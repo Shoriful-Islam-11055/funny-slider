@@ -1,6 +1,7 @@
 const imagesArea = document.querySelector('.images');
 const gallery = document.querySelector('.gallery');
 const galleryHeader = document.querySelector('.gallery-header');
+const search = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
@@ -109,10 +110,17 @@ const changeSlide = (index) => {
   items[index].style.display = "block"
 }
 
+
+//Trigger a button click with JavaScript on the Enter key in a text box
+search.addEventListener("keypress", function(event) {
+    if (event.key == 'Enter')
+    searchBtn.click();
+});
+
+
 searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
-  const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
 })
